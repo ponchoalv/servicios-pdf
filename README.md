@@ -10,7 +10,7 @@ El sistema una vez iniciado expone la siguiente lista de end-points:
  
 `POST /api/pdf-from-word-template`
  
-` POST /api/pfd-from-word-upload`
+`POST /api/pfd-from-word-upload`
  
  `GET /api/converter-list`
  
@@ -29,6 +29,14 @@ El sistema una vez iniciado expone la siguiente lista de end-points:
 
 [2]: http://www.documents4j.com
 
+
+Los templates se pueden desarrollar usando docx y la sintaxis de [Velocity][3] dentro de MergeFields de Word (`POST /api/pdf-from-word-template`) [más información][5].
+ 
+También se pueden generar pdf utilizando [JasperStudio][4] y generando el template compilado `.jasper` (`POST /api/pdf-from-jasper-template`), el cual se utiliza como template.
+
+[3]: https://velocity.apache.org/
+[4]: https://community.jaspersoft.com/project/jaspersoft-studio/releases
+[5]: https://github.com/opensagres/xdocreport/wiki
 ## Pre-requisitos
 
 Para compilar el código es necesario installar la JDK 1.8 y el aplicativo  [Leiningen][1] 2.0+.
@@ -83,4 +91,48 @@ La lógica implementada para el balanceador de de conversores pdf se encuentra e
 
 La lógica donde se exponen los endpoints se encuentra en `routes/services.clj`. 
 
-                                                                                                                 
+## Ejemplos de uso
+
+* Ejemplo de cuerpo a utilizar para llamar el end-point:
+
+    `POST /api/pdf-from-word-template`
+       
+    Asumiendo que existe un template llamado template.docx en el directorio definido en la variable de entorno `TEMPLATE_FOLDER` y que el template contiene las variables mencionadas en el atributo `template-data`
+    
+    
+```
+{
+       "template-name": "template.docx",
+       "output-file": "srt-1111.pdf",
+       "template-data": {
+         "linea": "Una Linea",
+         "nro_solicitud": "1111",
+         "prioridad": "Alta",
+         "justifica": "Una Compra Importante",
+         "solicitante": "Perez",
+         "referente": "Poncho",
+         "items": [
+           {
+             "item": "Item 1",
+             "desc": "Descripción del item 1",
+             "cantidad": "345"
+           },
+         {
+             "item": "Item 1",
+             "desc": "Descripción del item 1",
+             "cantidad": "345"
+           },
+         {
+             "item": "Item 1",
+             "desc": "Descripción del item 1",
+             "cantidad": "345"
+           }
+         ],
+         "nombre_del_proyecto": "OnBoarding",
+         "contacto": "pepe",
+         "gerencia": "Sistemas",
+         "fecha": "2018-05-23T19:35:28.401Z"
+       }
+    }
+```
+
