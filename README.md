@@ -29,7 +29,6 @@ El sistema una vez iniciado expone la siguiente lista de end-points:
 
 [2]: http://www.documents4j.com
 
-
 Los templates se pueden desarrollar usando docx y la sintaxis de [Velocity][3] dentro de MergeFields de Word (`POST /api/pdf-from-word-template`) [más información][5].
  
 También se pueden generar pdf utilizando [JasperStudio][4] y generando el template compilado `.jasper` (`POST /api/pdf-from-jasper-template`), el cual se utiliza como template.
