@@ -33,7 +33,7 @@ El sistema una vez iniciado expone la siguiente lista de end-points:
 
 Para compilar el código es necesario installar la JDK 1.8 y el aplicativo  [Leiningen][1] 2.0+.
 
-Para ejecutar se necesita una JRE 1.8. También se deben configurar las variables de entorno JASPER_TEMPLATES donde se alojan los templates .jasper y TEMPLATE_FOLDER donde se alojan los templates .docx (ambas variables pueden apuntar al mismo directorio).
+Para ejecutar se necesita una JRE 1.8. También se deben configurar las variables de entorno `JASPER_TEMPLATES` donde se alojan los templates .jasper y `TEMPLATE_FOLDER` donde se alojan los templates .docx (ambas variables pueden apuntar al mismo directorio).
 
 * Ejemplo: SET TEMPLATE_FOLDER=C:/Users/aalvarez/Desktop/programas/servicios-pdf/template/
 
