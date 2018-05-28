@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.glassfish.jersey.connectors/jersey-apache-connector:2.6">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/connectors/jersey-apache-connector/2.6/jersey-apache-connector-2.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
