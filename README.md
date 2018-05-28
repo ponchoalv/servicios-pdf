@@ -1,4 +1,4 @@
-# servicios_pdf
+# servicios-pdf
 
 Sistema desarrollado usando Clojure 1.9.
 
@@ -33,13 +33,17 @@ El sistema una vez iniciado expone la siguiente lista de end-points:
 
 Para compilar el código es necesario installar la JDK 1.8 y el aplicativo  [Leiningen][1] 2.0+.
 
-Para ejecutar se necesita una JRE 1.8.
+Para ejecutar se necesita una JRE 1.8. También se deben configurar las variables de entorno JASPER_TEMPLATES donde se alojan los templates .jasper y TEMPLATE_FOLDER donde se alojan los templates .docx (ambas variables pueden apuntar al mismo directorio).
+
+* Ejemplo: SET TEMPLATE_FOLDER=C:/Users/aalvarez/Desktop/programas/servicios-pdf/template/
+
+*Usar como separador de directorio "/" o "\\\\"
 
 Para convertir los documentos de word a PDF se precisa una instalación de MS Word con licencia y `documents4j-server-standalone-1.0.3-shaded.jar`
 
 [1]: https://github.com/technomancy/leiningen
 
-## Iniciar el sismtema
+## Iniciar el sistema
 
 Para inciar la aplicación ejecutar:
 
@@ -64,5 +68,19 @@ con el cuerpo:
 *aclaraciones: El portal swagger no maneja tipos de archivos 'application/pdf' por lo tanto, para comprobar los archivos generados deberán usar las herramientas para desarrolladores de google chrome (copiar respuesta, en trafico de red y luego pegar en la barra de direcciones del mismo) 
                                                                                                                     
                                                                                                                   
-    
-    
+## Referencias del código
+
+Para ejecutar la aplicación desde el código, utilizando Leiningen ejecutar parado en el directorio raíz del proyecto (servicios-pdf):
+`lein run`.
+
+Para compilar y generar un JAR con todas las librerías dentro (uberjar) ejecutar: `lein uberjar` el jar se generará en la carpeta `target/uberjar`.
+
+La lógica de conversión de word a PDF se encuentra en los archivos `docx-reports/core.clj` y `utils/core.clj`.
+
+La lógica implementada para agregar campos de firma a los pdf y generar un pdf desde un template jasper esta en `jasper/core.clj`.
+
+La lógica implementada para el balanceador de de conversores pdf se encuentra en el archivo `converter/core.clj`.
+
+La lógica donde se exponen los endpoints se encuentra en `routes/services.clj`. 
+
+                                                                                                                 
