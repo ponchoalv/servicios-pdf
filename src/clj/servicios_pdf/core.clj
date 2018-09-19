@@ -26,8 +26,7 @@
   :start
   (when (env :nrepl-port)
     (repl/start { :bind (env :nrepl-bind)
-                  :port (env :nrepl-port)
-                   }))
+                  :port (env :nrepl-port) }))
   :stop
   (when repl-server
     (repl/stop repl-server)))

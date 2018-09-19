@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/servicios-pdf.iml" filepath="$PROJECT_DIR$/servicios-pdf.iml" />
-      <module fileurl="file://$PROJECT_DIR$/srt.iml" filepath="$PROJECT_DIR$/srt.iml" />
     </modules>
   </component>
 </project>
